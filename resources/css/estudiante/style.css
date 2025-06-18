@@ -1,0 +1,96 @@
+.section__estudiantes {
+    background-color: var(--color-blanco);
+    border-radius: var(--borer-radius-sidebar);
+    padding: 25px 15px;
+}
+
+.header__estudiantes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.header__text {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.section__filtrar {
+    display: flex;
+    gap: 10px;
+}
+
+.buscador {
+    background-color: var(--color-fondo-gris-claro);
+    border-radius: var(--border-radius-buscador);
+    padding: 8px 15px;
+    width: 230px;
+}
+
+.categoria {
+    background-color: var(--color-fondo-gris-claro);
+    border-radius: var(--border-radius-categogory);
+    padding: 1px 10px;
+    color: var(--color-oscuro);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.categoria:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(108, 155, 207, 0.2);
+    outline: none;
+}
+
+.categoria option {
+    padding: 0.5rem;
+    background: var(--color-blanco);
+}
+
+.categoria option:hover {
+    background-color: var(--color-primario) !important;
+    color: white;
+}
+
+table {
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #EDF9FD;
+}
+
+table tbody {
+    text-align: center;
+}
+
+td, th {
+    padding: 12px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.icono__editar {
+    color: rgb(92, 6, 243);
+}
+
+.icono__eliminar {
+    color: red;
+}
+
+.icono {
+    transition: transform 0.3s ease;
+}
+
+.icono:hover {
+    transform: scale(1.1);
+}
