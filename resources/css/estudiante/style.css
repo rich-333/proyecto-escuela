@@ -1,3 +1,5 @@
+/* HEADER */
+
 .section__estudiantes {
     background-color: var(--color-blanco);
     border-radius: var(--borer-radius-sidebar);
@@ -7,7 +9,7 @@
 .header__estudiantes {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .header__text {
@@ -17,20 +19,22 @@
 
 .section__filtrar {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
 .buscador {
     background-color: var(--color-fondo-gris-claro);
     border-radius: var(--border-radius-buscador);
-    padding: 8px 15px;
+    padding: 9px 15px;
     width: 230px;
 }
 
 .categoria {
     background-color: var(--color-fondo-gris-claro);
     border-radius: var(--border-radius-categogory);
-    padding: 1px 10px;
+    padding:8px 10px;
     color: var(--color-oscuro);
     font-size: 0.88rem;
     font-weight: 500;
@@ -56,6 +60,8 @@
     background-color: var(--color-primario) !important;
     color: white;
 }
+
+/* TABLE */
 
 table {
     border: 2px solid #e0e0e0;
@@ -93,4 +99,60 @@ td, th {
 
 .icono:hover {
     transform: scale(1.1);
+}
+
+/* PAGINACION */
+
+.contenedor__paginacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.resaltar {
+    color: #303972;
+}
+
+.paginacion {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.flecha, .pagina {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #a99fc2;
+    border-radius: 50%;
+    background: white;
+    color: #6c648b;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.flecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.pagina.active {
+    background-color: #4D44B5;
+    color: var(--color-blanco);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-color: transparent;
+}
+
+.pagina:hover {
+    background-color: #4D44B5;
+    color: var(--color-blanco);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-color: transparent;
+}
+
+.flecha:hover {
+    background-color: #f5f5f5;
 }
