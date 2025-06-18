@@ -77,5 +77,17 @@
             </tbody>
 
         </table>
+
+        <div class="contenedor__paginacion">
+            <span>Mostrando <span class="resaltar">1-10</span> de <span class="resaltar">100</span> datos</span>
+            <div class="paginacion">
+                <button class="flecha">&lt;</button>
+                <button class="pagina active">1</button>
+                <button class="pagina">2</button>
+                <button class="pagina">3</button>
+                <button class="flecha">&gt;</button>
+            </div>
+        </div>
+
     </section>
 @endsection
