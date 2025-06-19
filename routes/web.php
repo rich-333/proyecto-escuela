@@ -17,3 +17,7 @@ Route::get('/estudiantes', function () {
 Route::get('/profesores', function () {
     return view('profesor/index');
 });
+
+Route::get('/tutores', function () {
+    return view('tutor/index');
+});
