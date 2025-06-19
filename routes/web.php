@@ -25,3 +25,7 @@ Route::get('/tutores', function () {
 Route::get('/inscripciones', function () {
     return view('inscripcion/index');
 });
+
+Route::get('/pensiones', function () {
+    return view('pensiones/index');
+});
