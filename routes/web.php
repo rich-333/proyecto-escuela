@@ -21,3 +21,7 @@ Route::get('/profesores', function () {
 Route::get('/tutores', function () {
     return view('tutor/index');
 });
+
+Route::get('/inscripciones', function () {
+    return view('inscripcion/index');
+});
