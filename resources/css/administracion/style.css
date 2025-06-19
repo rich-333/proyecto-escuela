@@ -1,12 +1,12 @@
 /* HEADER */
 
-.section__estudiantes {
+.section__tabla {
     background-color: var(--color-blanco);
     border-radius: var(--borer-radius-sidebar);
     padding: 25px 15px;
 }
 
-.header__estudiantes {
+.header__tabla {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;

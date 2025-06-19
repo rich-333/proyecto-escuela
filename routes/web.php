@@ -13,3 +13,7 @@ Route::get('/iniciarsesion', function () {
 Route::get('/estudiantes', function () {
     return view('estudiante/index');
 });
+
+Route::get('/profesores', function () {
+    return view('profesor/index');
+});

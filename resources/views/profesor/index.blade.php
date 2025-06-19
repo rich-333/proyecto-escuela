@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Estudiantes')
+@section('title', 'Profesores')
 
-@section('header', 'Estudiantes')
+@section('header', 'Profesores')
 
 @push('styles')
     @vite(['resources/css/administracion/style.css'])
@@ -11,7 +11,7 @@
 @section('content')
     <section class="section__tabla">
         <header class="header__tabla">
-            <h4 class="header__text">Lista de Estudiantes</h4>
+            <h4 class="header__text">Lista de Profesores</h4>
             <div class="section__filtrar">
                 <input class="buscador" type="text" placeholder="Buscar por nombre">
                 <select name="" id="" class="categoria">
@@ -30,6 +30,7 @@
                 </select>
             </div>
         </header>
+
         <table id="tabla">
 
             <thead>
@@ -38,9 +39,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Foto</th>
-                    <th>Fecha De Nacmiento</th>
-                    <th>Genero</th>
-                    <th>Direccion</th>
+                    <th>Telefono</th>
                     <th>Curso</th>
                     <th>Paralelo</th>
                     <th>Editar</th>
@@ -54,11 +53,9 @@
                     <td>Baldemar</td>
                     <td>Heredia</td>
                     <td>sssssss</td>
-                    <td>24/30/2001</td>
-                    <td>M</td>
-                    <td>Av. Ingavi Zona Chimba</td>
+                    <td>7745545</td>
                     <td>Segundo</td>
-                    <td>B</td>
+                    <td>A</td>
                     <td>
                         <a href="#">
                             <span class="material-icons-sharp icono__editar icono">
@@ -96,6 +93,5 @@
                 </button>
             </div>
         </div>
-
     </section>
 @endsection
