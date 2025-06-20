@@ -77,6 +77,7 @@
             <main>
                 <div class="main__header">
                     <h1>@yield('header')</h1>
+                    @hasSection('agregar')
                     <div class="main__agregar">
                         <span class="agregar__texto">Agregar Nuevo</span>
                         <a href="">
@@ -85,6 +86,7 @@
                             </span>
                         </a>
                     </div>
+                    @endif
                 </div>
                 @yield('content')
             </main>

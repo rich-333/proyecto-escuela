@@ -1,0 +1,78 @@
+.form__estudiante, .form__tutor {
+    background-color: var(--color-blanco);
+    border-radius: 0 0 var(--borer-radius-sidebar) var(--borer-radius-sidebar);
+    padding: 25px 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 25px 20px;
+}
+
+.seccion__titulo {
+    background-color: #4D44B5;
+    border-radius: var(--borer-radius-sidebar) var(--borer-radius-sidebar) 0 0;
+    padding: 1rem 1.5rem;
+    color: var(--color-blanco);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo__titulo {
+    font-weight: 700;
+}
+
+.campo__input {
+    border: 1px solid #C1BBEB;
+    border-radius: var(--border-radius-1);
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.campo__input:focus {
+    border-color: #4D44B5;
+}
+
+.contenedor__form {
+    margin: 20px 0;
+}
+
+.contenedor__btn {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: var(--border-radius-categogory);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn__cancelar {
+    border: 1px solid #4D44B5;
+    color: #4D44B5;
+    transition: 0.3s ease;
+}
+
+.btn__cancelar:hover {
+    background-color: #4D44B5;
+    color: var(--color-blanco);
+}
+
+.btn__enviar {
+    background-color: #4D44B5;
+    color: var(--color-blanco);
+    transition: 0.3s ease;
+}
+
+.btn__enviar:hover {
+    border: 1px solid #4D44B5;
+    color: #4D44B5;
+    background-color: var(--color-blanco);
+}

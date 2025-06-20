@@ -4,6 +4,10 @@
 
 @section('header', 'Inscripciones')
 
+@section('agregar')
+
+@endsection
+
 @push('styles')
     @vite(['resources/css/administracion/style.css'])
 @endpush

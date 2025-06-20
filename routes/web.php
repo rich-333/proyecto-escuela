@@ -29,3 +29,7 @@ Route::get('/inscripciones', function () {
 Route::get('/pensiones', function () {
     return view('pensiones/index');
 });
+
+Route::get('/agregarEstudiante', function () {
+    return view('registrar/index');
+});
