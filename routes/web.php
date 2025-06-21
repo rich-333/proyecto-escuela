@@ -33,3 +33,11 @@ Route::get('/pensiones', function () {
 Route::get('/agregarEstudiante', function () {
     return view('registrar/index');
 });
+
+Route::get('/layout', function () {
+    return view('layouts/profesores');
+});
+
+Route::get('/layout2', function () {
+    return view('layouts/app');
+});

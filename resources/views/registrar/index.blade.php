@@ -88,7 +88,3 @@
         <button class="btn btn__enviar" type="submit">Enviar</button>
     </div>
 @endsection
-
-Se agrego un nueva vista para agregar un nuevo estudiante y tutor
-
-Esto nos ayudara a rellenar los datos de cada estudiante y tutor del colegio con un formulario.
