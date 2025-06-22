@@ -142,7 +142,8 @@ aside .sidebar:hover {
     background-color: transparent;
     color: var(--color-oscuro);
     text-align: left;
-    margin-top: 8px;
+    margin-top: 9px;
+    margin-left: 10px;
     padding: 8px 0;
     font-weight: 600;
     border: none;
@@ -174,7 +175,9 @@ aside .sidebar:hover {
     font-size: 0.9rem;
     color: var(--color-oscuro);
     font-weight: 500;
-    display: block;
+    display: flex;
+    align-items: center;
+    
     padding: 0.4rem 0.5rem;
     border-radius: var(--border-radius-1);
     transition: background-color 0.3s ease;

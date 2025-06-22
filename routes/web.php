@@ -37,3 +37,11 @@ Route::get('/agregarEstudiante', function () {
 Route::get('/materias', function () {
     return view('profesor/materias');
 });
+
+Route::get('/estudiante', function () {
+    return view('tutor/boletin');
+});
+
+Route::get('/pension', function () {
+    return view('tutor/pensiones');
+});
