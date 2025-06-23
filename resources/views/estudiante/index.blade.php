@@ -34,31 +34,36 @@
 
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>CI</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
+                    <th>Tutor</th>
                     <th>Foto</th>
                     <th>Fecha De Nacmiento</th>
                     <th>Genero</th>
                     <th>Direccion</th>
                     <th>Curso</th>
                     <th>Paralelo</th>
+                    <th>Estado</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
 
             <tbody>
+                @foreach ($estudiantes as $estudiante) 
                 <tr>
-                    <td>1</td>
-                    <td>Baldemar</td>
-                    <td>Heredia</td>
-                    <td>sssssss</td>
-                    <td>24/30/2001</td>
-                    <td>M</td>
-                    <td>Av. Ingavi Zona Chimba</td>
-                    <td>Segundo</td>
-                    <td>B</td>
+                    <td>{{ $estudiante->ci }}</td>
+                    <td>{{ $estudiante->nombre }}</td>
+                    <td>{{ $estudiante->apellido }}</td>
+                    <td>{{ $estudiante->tutor->nombre }} {{ $estudiante->tutor->apellido }}</td>
+                    <td>{{ $estudiante->ruta_imagen }}</td>
+                    <td>{{ $estudiante->fecha_nacimiento }}</td>
+                    <td>{{ $estudiante->genero}}</td>
+                    <td>{{ $estudiante->direccion }}</td>
+                    <td>{{ $estudiante->curso->grado }}</td>
+                    <td>{{ $estudiante->curso->paralelo }}</td>
+                    <td>{{ $estudiante->estado }}</td>
                     <td>
                         <a href="#">
                             <span class="material-icons-sharp icono__editar icono">
@@ -74,6 +79,7 @@
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
 
         </table>

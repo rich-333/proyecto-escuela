@@ -10,9 +10,9 @@ Route::get('/iniciarsesion', function () {
     return view('iniciar_sesion/login');
 });
 
-Route::get('/estudiantes', function () {
-    return view('estudiante/index');
-});
+use App\Http\Controllers\EstudianteController;
+
+Route::get('/estudiantes', [EstudianteController::class, 'index']);
 
 Route::get('/profesores', function () {
     return view('profesor/index');
