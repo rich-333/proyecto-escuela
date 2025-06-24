@@ -11,4 +11,11 @@ class EstudianteController extends Controller
         $estudiantes = Estudiante::with(['curso', 'tutor'])->get();
         return view('estudiante.index', compact('estudiantes'));
     }
+
+    public function destroy($id){
+        $estudiante = Estudiante::findOrFail($id);
+        $estudiante->delete();
+
+        return redirect()->route('estudiante.index')->with('success', 'Estudiante eliminado correctamente.');
+    }
 }

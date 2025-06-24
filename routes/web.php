@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstudianteController;
+
+Route::get('/estudiantes', [EstudianteController::class, 'index'])->name('estudiante.index');
+Route::delete('/estudiantes/{id}', [EstudianteController::class, 'destroy'])->name('estudiantes.destroy');
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,10 +13,6 @@ Route::get('/', function () {
 Route::get('/iniciarsesion', function () {
     return view('iniciar_sesion/login');
 });
-
-use App\Http\Controllers\EstudianteController;
-
-Route::get('/estudiantes', [EstudianteController::class, 'index']);
 
 Route::get('/profesores', function () {
     return view('profesor/index');

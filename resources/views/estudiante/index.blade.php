@@ -72,11 +72,15 @@
                         </a>
                     </td>
                     <td>
-                        <a href="#">
-                            <span class="material-icons-sharp icono__eliminar icono">
-                                delete
-                            </span>
-                        </a>
+                        <form action="{{ route('estudiantes.destroy', $estudiante->id_estudiante) }}" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn__eliminar">    
+                                <span class="material-icons-sharp icono__eliminar icono">
+                                    delete
+                                </span>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
