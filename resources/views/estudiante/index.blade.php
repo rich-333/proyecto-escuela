@@ -72,7 +72,7 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('estudiantes.destroy', $estudiante->id_estudiante) }}" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?')">
+                        <form action="{{ route('estudiantes.eliminar', $estudiante->id_estudiante) }}" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn__eliminar">    

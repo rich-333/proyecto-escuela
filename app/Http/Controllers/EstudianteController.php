@@ -12,7 +12,7 @@ class EstudianteController extends Controller
         return view('estudiante.index', compact('estudiantes'));
     }
 
-    public function destroy($id){
+    public function eliminar($id){
         $estudiante = Estudiante::findOrFail($id);
         $estudiante->delete();
 
