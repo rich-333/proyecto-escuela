@@ -77,20 +77,19 @@
             <main>
                 <div class="main__header">
                     <h1>@yield('header')</h1>
-                    @hasSection('agregar')
                     <div class="main__agregar">
                         <span class="agregar__texto">Agregar Nuevo</span>
-                        <a href="">
+                        <a href="{{ route('estudiante.create') }}">
                             <span class="material-icons-sharp agregar">
                                 add
                             </span>
                         </a>
                     </div>
-                    @endif
                 </div>
                 @yield('content')
             </main>
         </div>
     </div>
+    @stack('scripts')
 </body>
 </html>

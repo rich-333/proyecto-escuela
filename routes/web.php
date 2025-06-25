@@ -5,6 +5,9 @@ use App\Http\Controllers\EstudianteController;
 
 Route::get('/estudiantes', [EstudianteController::class, 'index'])->name('estudiante.index');
 Route::delete('/estudiantes/{id}', [EstudianteController::class, 'eliminar'])->name('estudiantes.eliminar');
+Route::post('/estudiantes', [EstudianteController::class, 'agregar'])->name('estudiantes.agregar');
+Route::get('/estudiantes/crear', [EstudianteController::class, 'create'])->name('estudiante.create');
+
 
 Route::get('/', function () {
     return view('welcome');

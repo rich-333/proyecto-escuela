@@ -4,6 +4,10 @@
 
 @section('header', 'Estudiantes')
 
+@section('agregar')
+
+@endsection
+
 @push('styles')
     @vite(['resources/css/administracion/style.css'])
 @endpush
@@ -57,7 +61,9 @@
                     <td>{{ $estudiante->nombre }}</td>
                     <td>{{ $estudiante->apellido }}</td>
                     <td>{{ $estudiante->tutor->nombre }} {{ $estudiante->tutor->apellido }}</td>
-                    <td>{{ $estudiante->ruta_imagen }}</td>
+                    <td>
+                        <img class="img__estudiante" src="{{ asset('storage/' . $estudiante->ruta_imagen) }}" alt="Imagen del estudiante">
+                    </td>
                     <td>{{ $estudiante->fecha_nacimiento }}</td>
                     <td>{{ $estudiante->genero}}</td>
                     <td>{{ $estudiante->direccion }}</td>

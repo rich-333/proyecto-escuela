@@ -3,7 +3,7 @@
     border-radius: 0 0 var(--borer-radius-sidebar) var(--borer-radius-sidebar);
     padding: 25px 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding: 25px 20px;
 }
@@ -25,6 +25,37 @@
     font-weight: 700;
 }
 
+.campo__imagen {
+    display: flex;
+    align-items: center;
+}
+
+.cargar__imagen {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    width: 25%;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    padding: 25px 0;
+}
+
+.cargar__imagen:hover {
+    border-color: #4D44B5;
+    background-color: #dcdcdc;
+}
+
+.cargar__imagen span {
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.cargar__imagen input {
+    display: none;
+}
+
 .campo__input {
     border: 1px solid #C1BBEB;
     border-radius: var(--border-radius-1);
@@ -36,8 +67,39 @@
     border-color: #4D44B5;
 }
 
+.contenedor__radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.campo__radio {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.campo__radio:hover{
+    color: #4D44B5;
+}
+
 .contenedor__form {
     margin: 20px 0;
+}
+
+.campo__select option {
+    color: #333;
+    background-color: #fff;
+    padding: 8px 52px;
+    font-size: 0.9rem;
+}
+
+.campo__input option:checked {
+    background-color: #4D44B5;
+    color: white;
 }
 
 .contenedor__btn {
@@ -61,8 +123,7 @@
 }
 
 .btn__cancelar:hover {
-    background-color: #4D44B5;
-    color: var(--color-blanco);
+    background-color: #dfdfdf;
 }
 
 .btn__enviar {
@@ -72,7 +133,22 @@
 }
 
 .btn__enviar:hover {
-    border: 1px solid #4D44B5;
-    color: #4D44B5;
-    background-color: var(--color-blanco);
+    background-color: #1200d3;
+}
+
+.campo__check {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.lbl__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.contenedor__form--disabled {
+    display: none;
 }
