@@ -8,6 +8,9 @@ Route::delete('/estudiantes/{id}', [EstudianteController::class, 'eliminar'])->n
 Route::post('/estudiantes', [EstudianteController::class, 'agregar'])->name('estudiantes.agregar');
 Route::get('/estudiantes/crear', [EstudianteController::class, 'create'])->name('estudiante.create');
 
+Route::get('/estudiantes/{id}/editar', [EstudianteController::class, 'edit'])->name('estudiantes.edit');
+Route::put('/estudiantes/{id}', [EstudianteController::class, 'update'])->name('estudiantes.actualizar');
+
 
 Route::get('/', function () {
     return view('welcome');

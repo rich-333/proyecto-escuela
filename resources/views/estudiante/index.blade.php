@@ -71,7 +71,7 @@
                     <td>{{ $estudiante->curso->paralelo }}</td>
                     <td>{{ $estudiante->estado }}</td>
                     <td>
-                        <a href="#">
+                        <a href="{{ route('estudiantes.edit', $estudiante->id_estudiante) }}">
                             <span class="material-icons-sharp icono__editar icono">
                                 edit
                             </span>

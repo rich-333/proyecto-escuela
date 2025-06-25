@@ -117,46 +117,46 @@
             </div>
             <div class="form__tutor">
                 <div class="campo">
-                    <label for="" class="campo__titulo">Nombres *</label>
-                    <input name="tutor_nombre" class="campo__input" type="text" placeholder="Baldemar">
+                    <label for="tutorNombre" class="campo__titulo">Nombres *</label>
+                    <input id="tutorNombre" name="tutor_nombre" class="campo__input" type="text" placeholder="Baldemar">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Apellidos *</label>
-                    <input name="tutor_apellido" class="campo__input" type="text" placeholder="Heredia Sosa">
+                    <label for="tutorApellido" class="campo__titulo">Apellidos *</label>
+                    <input id="tutorApellido" name="tutor_apellido" class="campo__input" type="text" placeholder="Heredia Sosa">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Fecha de nacimiento *</label>
-                    <input name="tutor_fecha_nacimiento" class="campo__input" type="date" placeholder="DIA/MES/AÑO">
+                    <label for="tutorFechaNacimiento" class="campo__titulo">Fecha de nacimiento *</label>
+                    <input id="tutorFechaNacimiento" name="tutor_fecha_nacimiento" class="campo__input" type="date" placeholder="DIA/MES/AÑO">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Carnet *</label>
-                    <input name="tutor_ci" class="campo__input" type="number" placeholder="45558">
+                    <label for="tutorCi" class="campo__titulo">Carnet *</label>
+                    <input id="tutorCi" name="tutor_ci" class="campo__input" type="number" placeholder="45558">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Parentesco *</label>
-                    <input name="tutor_parentesco" class="campo__input" type="text" placeholder="Padre" name="" id="">
+                    <label for="tutorParentesco" class="campo__titulo">Parentesco *</label>
+                    <input id="tutorParentesco" name="tutor_parentesco" class="campo__input" type="text" placeholder="Padre" name="" id="">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Correo *</label>
-                    <input class="campo__input" type="email" placeholder="padre@gmail.conm">
+                    <label for="tutorCorreo" class="campo__titulo">Correo *</label>
+                    <input id="tutorCorreo" class="campo__input" type="email" placeholder="padre@gmail.conm">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Telefono *</label>
-                    <input name="tutor_telefono" class="campo__input" type="number" placeholder="7960344">
+                    <label for="tutorTelefono" class="campo__titulo">Telefono *</label>
+                    <input id="tutorTelefono" name="tutor_telefono" class="campo__input" type="number" placeholder="7960344">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Nombre De Usuario *</label>
-                    <input class="campo__input" type="text" placeholder="JuanPadre123">
+                    <label for="tutorNombreUsuario" class="campo__titulo">Nombre De Usuario *</label>
+                    <input id="tutorNombreUsuario" class="campo__input" type="text" placeholder="JuanPadre123">
                 </div>
                 <div class="campo">
-                    <label for="" class="campo__titulo">Contrasena *</label>
-                    <input class="campo__input" type="text" placeholder="Juan23565">
+                    <label for="tutorContrasena" class="campo__titulo">Contrasena *</label>
+                    <input id="tutorContrasena" class="campo__input" type="text" placeholder="Juan23565">
                 </div>
             </div> 
         </div>
 
         <div class="contenedor__btn">
-            <a class="btn btn__cancelar" href="#">Cancelar</a>
+            <a class="btn btn__cancelar" href="{{ route('estudiante.index') }}">Cancelar</a>
             <button class="btn btn__enviar" type="submit">Enviar</button>
         </div>
     </form>
