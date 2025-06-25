@@ -21,13 +21,13 @@
     <div class="seccion__titulo">
         <h3>Detalles Estudiante</h3>
     </div>
-    <form action="{{ route('estudiantes.agregar') }}" method="post" enctype="multipart/form-data">
+    <form id="formEstudiante" action="{{ route('estudiantes.agregar') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form__estudiante">
             <div class="campo campo__imagen">
-                <label for="cargar-imagen" class="cargar__imagen">
+                <label for="imagenEstudiante" class="cargar__imagen">
                     <span>Imagen</span>
-                    <input name="ruta_imagen" id="cargar-imagen" type="file" placeholder="cccccc" required>
+                    <input name="ruta_imagen" id="imagenEstudiante" type="file" placeholder="">
                 </label>
             </div>
             <div class="campo">
@@ -106,7 +106,8 @@
 
         <div class="campo__check">
             <label class="lbl__check campo__titulo">
-                <input type="checkbox" id="toggleNuevoTutor" name="nuevo_tutor">
+                <input type="hidden" name="nuevo_tutor" value="0">
+                <input type="checkbox" id="toggleNuevoTutor" name="nuevo_tutor" value="1">
                 ¿Registrar nuevo tutor?
             </label>
         </div>
@@ -134,7 +135,7 @@
                 </div>
                 <div class="campo">
                     <label for="tutorParentesco" class="campo__titulo">Parentesco *</label>
-                    <input id="tutorParentesco" name="tutor_parentesco" class="campo__input" type="text" placeholder="Padre" name="" id="">
+                    <input id="tutorParentesco" name="tutor_parentesco" class="campo__input" type="text" placeholder="Padre">
                 </div>
                 <div class="campo">
                     <label for="" class="campo__titulo">Direccion *</label>
@@ -175,11 +176,15 @@
         const tutor = document.getElementById('tutor');
         const campoTutor = document.getElementById('campoTutor');
 
+        const formEstudiante = document.getElementById('formEstudiante');
+        const imgEstudiante = document.getElementById('imagenEstudiante');
+
         function toggleTutorForm() {
             if (checkbox.checked) {
                 formularioTutor.style.display = 'grid';
                 inputsTutor.forEach(input => input.required = true);
                 tutor.required = false;
+                tutor.value = '';
                 campoTutor.style.display = 'none';
             } else {
                 formularioTutor.style.display = 'none';
@@ -190,6 +195,14 @@
         }
         checkbox.addEventListener('change', toggleTutorForm);
         toggleTutorForm();
+
+        formEstudiante.addEventListener('submit', function (e) {
+            if (!imgEstudiante.value){
+                e.preventDefault();
+                alert('Por favor, sube una imagen del estudiante.');
+                imgEstudiante.focus();
+            }
+        })
     });
 </script>
 @endpush

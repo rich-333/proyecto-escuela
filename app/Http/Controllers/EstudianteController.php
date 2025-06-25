@@ -20,10 +20,23 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::findOrFail($id);
         $estudiante->delete();
 
-        return redirect()->route('estudiante.index')->with('success', 'Estudiante eliminado correctamente.');
+        return redirect()->route('estudiante.index')->with('eliminado', 'Estudiante eliminado correctamente.');
     }
 
     public function agregar(Request $request){
+        if (!$request->boolean('nuevo_tutor')) {
+            $request->request->remove('tutor_nombre');
+            $request->request->remove('tutor_apellido');
+            $request->request->remove('tutor_ci');
+            $request->request->remove('tutor_fecha_nacimiento');
+            $request->request->remove('tutor_direccion');
+            $request->request->remove('tutor_telefono');
+            $request->request->remove('tutor_parentesco');
+            $request->request->remove('correo');
+            $request->request->remove('nombre_usuario');
+            $request->request->remove('contrasena');
+        }
+
         $validated = $request->validate([
             'nombre' => 'required|string',
             'apellido' => 'required|string',
@@ -36,21 +49,21 @@ class EstudianteController extends Controller
             'curso' => 'required|exists:curso,id_curso',
             'tutor' => 'nullable|exists:tutor,id_tutor',
 
-            'nuevo_tutor' => 'sometimes',
-            'tutor_nombre' => 'required_if:nuevo_tutor,on',
-            'tutor_apellido' => 'required_if:nuevo_tutor,on',
-            'tutor_ci' => 'required_if:nuevo_tutor,on',
-            'tutor_fecha_nacimiento' => 'required_if:nuevo_tutor,on|nullable|date',
-            'tutor_direccion' => 'required_if:nuevo_tutor,on',
-            'tutor_telefono' => 'required_if:nuevo_tutor,on',
-            'tutor_parentesco' => 'required_if:nuevo_tutor,on',
+            'nuevo_tutor' => 'nullable|boolean',
+            'tutor_nombre' => 'required_if:nuevo_tutor,1',
+            'tutor_apellido' => 'required_if:nuevo_tutor,1',
+            'tutor_ci' => 'required_if:nuevo_tutor,1',
+            'tutor_fecha_nacimiento' => 'required_if:nuevo_tutor,1|nullable|date',
+            'tutor_direccion' => 'required_if:nuevo_tutor,1',
+            'tutor_telefono' => 'required_if:nuevo_tutor,1',
+            'tutor_parentesco' => 'required_if:nuevo_tutor,1',
 
-            'nombre_usuario' => 'required_if:nuevo_tutor,on|unique:usuarios,nombre_usuario',
-            'contrasena' => 'required_if:nuevo_tutor,on|min:6',
-            'correo' => 'required_if:nuevo_tutor,on|email|unique:usuarios,correo',
+            'nombre_usuario' => 'required_if:nuevo_tutor,1|unique:usuarios,nombre_usuario',
+            'contrasena' => 'required_if:nuevo_tutor,1|min:6',
+            'correo' => 'required_if:nuevo_tutor,1|email|unique:usuarios,correo',
         ]);
 
-        if ($request->has('nuevo_tutor')) {
+        if ($request->boolean('nuevo_tutor')) {
             $tutor = Tutor::create([
                 'nombre' => $request->tutor_nombre,
                 'apellido' => $request->tutor_apellido,
@@ -92,7 +105,7 @@ class EstudianteController extends Controller
             'id_tutor' => $tutor_id,
         ]);
 
-        return redirect()->route('estudiante.index')->with('success', 'Estudiante registrado exitosamente.');
+        return redirect()->route('estudiante.index')->with('creado', 'Estudiante registrado exitosamente.');
     }
 
     public function create()
@@ -147,6 +160,6 @@ class EstudianteController extends Controller
             'id_tutor' => $request->tutor,
         ]);
 
-        return redirect()->route('estudiante.index')->with('success', 'Estudiante actualizado correctamente.');
+        return redirect()->route('estudiante.index')->with('editado', 'Estudiante actualizado correctamente.');
     }
 }

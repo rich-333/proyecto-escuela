@@ -18,6 +18,21 @@
 @endpush
 
 @section('content')
+    @if (session('creado'))
+        <div class="alerta">
+            {{ session('creado') }}
+        </div>
+    @endif
+    @if (session('editado'))
+        <div class="alerta">
+            {{ session('editado') }}
+        </div>
+    @endif
+    @if (session('eliminado'))
+        <div class="alerta">
+            {{ session('eliminado') }}
+        </div>
+    @endif
     <section class="section__tabla">
         <header class="header__tabla">
             <h4 class="header__text">Lista de Estudiantes</h4>
@@ -120,3 +135,18 @@
 
     </section>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const alertas = document.querySelectorAll('.alerta');
+        alertas.forEach(alerta => {
+                setTimeout(() => {
+                alerta.style.opacity = '0';
+                alerta.style.transition = 'opacity 1s ease';
+                setTimeout(() => alerta.remove(), 1000);
+            }, 4000);
+        });
+    });
+</script>
+@endpush
