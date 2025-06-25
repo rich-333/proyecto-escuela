@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Tutor;
 use App\Models\Curso;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Storage;
 
 class EstudianteController extends Controller
@@ -43,6 +44,10 @@ class EstudianteController extends Controller
             'tutor_direccion' => 'required_if:nuevo_tutor,on',
             'tutor_telefono' => 'required_if:nuevo_tutor,on',
             'tutor_parentesco' => 'required_if:nuevo_tutor,on',
+
+            'nombre_usuario' => 'required_if:nuevo_tutor,on|unique:usuarios,nombre_usuario',
+            'contrasena' => 'required_if:nuevo_tutor,on|min:6',
+            'correo' => 'required_if:nuevo_tutor,on|email|unique:usuarios,correo',
         ]);
 
         if ($request->has('nuevo_tutor')) {
@@ -55,6 +60,15 @@ class EstudianteController extends Controller
                 'telefono' => $request->tutor_telefono,
                 'parentesco' => $request->tutor_parentesco,
             ]);
+
+            Usuario::create([
+                'nombre_usuario' => $request->input('nombre_usuario'),
+                'contrasena' => bcrypt($request->input('contrasena')),
+                'correo' => $request->input('correo'),
+                'rol' => 'Tutor',
+                'id_tutor' => $tutor->id_tutor,
+            ]);
+
             $tutor_id = $tutor->id_tutor;
         } else {
             $tutor_id = $request->tutor;

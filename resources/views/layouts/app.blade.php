@@ -77,14 +77,11 @@
             <main>
                 <div class="main__header">
                     <h1>@yield('header')</h1>
-                    <div class="main__agregar">
-                        <span class="agregar__texto">Agregar Nuevo</span>
-                        <a href="{{ route('estudiante.create') }}">
-                            <span class="material-icons-sharp agregar">
-                                add
-                            </span>
-                        </a>
-                    </div>
+                    @hasSection('btn-agregar')
+                        <div class="main__agregar">
+                            @yield('btn-agregar')
+                        </div>
+                    @endif
                 </div>
                 @yield('content')
             </main>

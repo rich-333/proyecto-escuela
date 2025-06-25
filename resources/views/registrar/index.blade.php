@@ -91,7 +91,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="campo">
+            <div class="campo" id="campoTutor">
                 <label for="tutor" class="campo__titulo">Tutor</label>
                 <select name="tutor" id="tutor" class="campo__input" required>
                     <option value="">Seleccione un tutor</option>
@@ -137,20 +137,24 @@
                     <input id="tutorParentesco" name="tutor_parentesco" class="campo__input" type="text" placeholder="Padre" name="" id="">
                 </div>
                 <div class="campo">
-                    <label for="tutorCorreo" class="campo__titulo">Correo *</label>
-                    <input id="tutorCorreo" class="campo__input" type="email" placeholder="padre@gmail.conm">
+                    <label for="" class="campo__titulo">Direccion *</label>
+                    <input name="tutor_direccion" class="campo__input" type="text" placeholder="Zona Chimba Av.Ingavi">
                 </div>
                 <div class="campo">
                     <label for="tutorTelefono" class="campo__titulo">Telefono *</label>
                     <input id="tutorTelefono" name="tutor_telefono" class="campo__input" type="number" placeholder="7960344">
                 </div>
                 <div class="campo">
+                    <label for="tutorCorreo" class="campo__titulo">Correo *</label>
+                    <input id="tutorCorreo" name="correo" class="campo__input" type="email" placeholder="padre@gmail.conm">
+                </div>
+                <div class="campo">
                     <label for="tutorNombreUsuario" class="campo__titulo">Nombre De Usuario *</label>
-                    <input id="tutorNombreUsuario" class="campo__input" type="text" placeholder="JuanPadre123">
+                    <input id="tutorNombreUsuario" name="nombre_usuario" class="campo__input" type="text" placeholder="JuanPadre123">
                 </div>
                 <div class="campo">
                     <label for="tutorContrasena" class="campo__titulo">Contrasena *</label>
-                    <input id="tutorContrasena" class="campo__input" type="text" placeholder="Juan23565">
+                    <input id="tutorContrasena" name="contrasena" class="campo__input" type="text" placeholder="Juan23565">
                 </div>
             </div> 
         </div>
@@ -168,14 +172,20 @@
         const checkbox = document.getElementById('toggleNuevoTutor');
         const formularioTutor = document.getElementById('formularioTutor');
         const inputsTutor = formularioTutor.querySelectorAll('input');
+        const tutor = document.getElementById('tutor');
+        const campoTutor = document.getElementById('campoTutor');
 
         function toggleTutorForm() {
             if (checkbox.checked) {
                 formularioTutor.style.display = 'grid';
                 inputsTutor.forEach(input => input.required = true);
+                tutor.required = false;
+                campoTutor.style.display = 'none';
             } else {
                 formularioTutor.style.display = 'none';
                 inputsTutor.forEach(input => input.required = false);
+                tutor.required = true;
+                campoTutor.style.display = 'flex';
             }
         }
         checkbox.addEventListener('change', toggleTutorForm);

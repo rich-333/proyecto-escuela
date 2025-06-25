@@ -4,8 +4,13 @@
 
 @section('header', 'Estudiantes')
 
-@section('agregar')
-
+@section('btn-agregar')
+    <span class="agregar__texto">Agregar Nuevo</span>
+    <a href="{{ route('estudiante.create') }}">
+        <span class="material-icons-sharp agregar">
+            add
+        </span>
+    </a>
 @endsection
 
 @push('styles')

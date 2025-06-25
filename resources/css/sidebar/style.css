@@ -249,7 +249,7 @@ aside .sidebar a.active:hover {
 .main__header {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 12px 0;
 }
 
 .main__agregar {
