@@ -73,14 +73,19 @@
                             </a>
                         </td>
                         <td>
-                            <span class="material-icons-sharp icono__ver icono">
-                                visibility
-                            </span>
+                            <a 
+                                href="{{ route('boletin.ver', ['id_estudiante' => $estudiante->id_estudiante, 'id_periodo' => $periodo_actual->id_periodo ?? 0]) }}"
+                                target="_blank"
+                            >
+                                <span class="material-icons-sharp icono__ver icono">visibility</span>
+                            </a>
                         </td>
                         <td>
-                            <span class="material-icons-sharp icono__descargar icono">
-                                download
-                            </span>
+                            <a 
+                                href="{{ route('boletin.descargar', ['id_estudiante' => $estudiante->id_estudiante, 'id_periodo' => $periodo_actual->id_periodo ?? 0]) }}"
+                            >
+                                <span class="material-icons-sharp icono__descargar icono">download</span>
+                            </a>
                         </td>
                         <!--
                         <td>

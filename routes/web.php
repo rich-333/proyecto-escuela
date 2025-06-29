@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CalificacionController;
+use App\Http\Controllers\BoletinController;
 
 Route::get('/login', [AuthController::class, 'mostrarLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'procesarLogin']);
@@ -21,6 +22,10 @@ Route::get('/profesor', [CalificacionController::class, 'panel'])->name('profeso
 Route::get('/profesor/materia/{id_materia}/cursos', [CalificacionController::class, 'mostrarCursos'])->name('profesor.materia.cursos');
 Route::get('/profesor/materia/{id_materia}/curso/{id_curso}', [CalificacionController::class, 'mostrarEstudiantes'])->name('profesor.materia.curso');
 Route::post('/profesor/notas/guardar-ajax', [CalificacionController::class, 'guardarAjax'])->name('calificaciones.guardarAjax');
+
+Route::get('/boletin/ver/{id_estudiante}/{id_periodo}', [BoletinController::class, 'ver'])->name('boletin.ver');
+Route::get('/boletin/descargar/{id_estudiante}/{id_periodo}', [BoletinController::class, 'descargar'])->name('boletin.descargar');
+
 
 Route::get('/', function () {
     return view('welcome');
