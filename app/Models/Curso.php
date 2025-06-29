@@ -22,4 +22,13 @@ class Curso extends Model
     public function estudiantes() {
         return $this->hasMany(Estudiante::class, 'id_curso');
     }
+
+    public function profesores() {
+        return $this->belongsToMany(Profesor::class, 'profesor_curso', 'id_curso', 'id_profesor');
+    }
+
+    public function materias() {
+        return $this->belongsToMany(Materia::class, 'profesor_materia', 'id_curso', 'id_materia');
+    }
+
 }

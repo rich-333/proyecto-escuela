@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\CalificacionController;
+
+Route::get('/login', [AuthController::class, 'mostrarLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'procesarLogin']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/estudiantes', [EstudianteController::class, 'index'])->name('estudiante.index');
 Route::delete('/estudiantes/{id}', [EstudianteController::class, 'eliminar'])->name('estudiantes.eliminar');
@@ -11,6 +17,10 @@ Route::get('/estudiantes/crear', [EstudianteController::class, 'create'])->name(
 Route::get('/estudiantes/{id}/editar', [EstudianteController::class, 'edit'])->name('estudiantes.edit');
 Route::put('/estudiantes/{id}', [EstudianteController::class, 'update'])->name('estudiantes.actualizar');
 
+Route::get('/profesor', [CalificacionController::class, 'panel'])->name('profesor.panel');
+Route::get('/profesor/materia/{id_materia}/cursos', [CalificacionController::class, 'mostrarCursos'])->name('profesor.materia.cursos');
+Route::get('/profesor/materia/{id_materia}/curso/{id_curso}', [CalificacionController::class, 'mostrarEstudiantes'])->name('profesor.materia.curso');
+Route::post('/profesor/notas/guardar-ajax', [CalificacionController::class, 'guardarAjax'])->name('calificaciones.guardarAjax');
 
 Route::get('/', function () {
     return view('welcome');

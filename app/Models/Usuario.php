@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
     protected $primaryKey = 'id_usuario';
     protected $table = 'usuarios';
@@ -19,4 +19,12 @@ class Usuario extends Model
         'id_tutor',
         'id_profesor',
     ];
+
+    public function getAuthPassword(){
+        return $this->contrasena;
+    }
+
+    public function profesor(){
+        return $this->belongsTo(Profesor::class, 'id_profesor');
+    }
 }

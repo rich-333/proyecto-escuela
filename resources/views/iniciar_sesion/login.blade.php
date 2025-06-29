@@ -8,15 +8,17 @@
 </head>
 <body>
   <div class="contenedor__sesion">
-    <form class="sesion">
+    <form class="sesion" method="post" action="{{ route('login') }}">
+      @csrf
       <h1 class="sesion__titulo">Iniciar Sesion</h1>
       <div class="sesion__logo">
         <img class="logo" src="{{ asset('imagenes/EscudoSF.PNG') }}" alt="Logo">
       </div>
       <label for="nombreUsuario" class="sesion__campo">Nombre de usuario</label>
-      <input id="nombreUsuario" class="sesion__entrada" type="text" placeholder="BaldemarHeredia7823" required>
+      <input id="nombreUsuario" name="nombre_usuario" class="sesion__entrada" type="text" placeholder="BaldemarHeredia7823" required>
+
       <label for="contrasena" class="sesion__campo">Contraseña</label>
-      <input id="contrasena" class="sesion__entrada" type="password" required>
+      <input id="contrasena" name="contrasena" class="sesion__entrada" type="password" required>
       <div class="sesion__boton">
         <button class="boton" type="submit">Iniciar Sesion</button>
       </div>
