@@ -24,28 +24,30 @@
                 </div>
             </div>
             <div class="sidebar">
-                <div>
-                    <div class="accordion">
-                        <button class="accordion-toggle">
-                            <img class="sidebar__icon" src="{{ asset('imagenes/estudiante.png') }}" alt="">
-                            Baldemar Heredia Sosa
-                        </button>
-                        <ul class="accordion-content">
-                            <li>
-                                <a href="/profesor/curso/1A">
-                                    <img class="sidebar__icon" src="{{ asset('imagenes/boletin.png') }}" alt="">
-                                    Boletin
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/profesor/curso/2A">
-                                    <img class="sidebar__icon" src="{{ asset('imagenes/pensiones.png') }}" alt="">
-                                    Pensiones
-                                </a>
-                            </li>
-                        </ul>
+                @foreach($estudiantes as $estudiante)
+                    <div>
+                        <div class="accordion">
+                            <button class="accordion-toggle">
+                                <img class="sidebar__icon" src="{{ asset('imagenes/estudiante.png') }}" alt="">
+                                {{ $estudiante->nombre }} {{ $estudiante->apellido }}
+                            </button>
+                            <ul class="accordion-content">
+                                <li>
+                                    <a href="{{ route('boletin.tutor', $estudiante->id_estudiante) }}">
+                                        <img class="sidebar__icon" src="{{ asset('imagenes/boletin.png') }}" alt="">
+                                        Boletin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('pensiones.tutor', $estudiante->id_estudiante) }}">
+                                        <img class="sidebar__icon" src="{{ asset('imagenes/pensiones.png') }}" alt="">
+                                        Pensiones
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endforeach
                 
                 <a href="#" class="sidebar__logout">
                     <span class="material-icons-sharp">

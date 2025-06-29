@@ -3,10 +3,12 @@
     border-radius: var(--borer-radius-sidebar);
     padding: 10px 15px;
     display: flex;
+    border: 1px solid #dedede;
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--box-shadow);
     transition: 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .cont:hover {

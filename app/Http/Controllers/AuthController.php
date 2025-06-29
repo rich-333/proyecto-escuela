@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $usuario = Usuario::where('nombre_usuario', $request->nombre_usuario)->first();
 
-        if ($usuario && $usuario->contrasena === $request->contrasena) {
+        if ($usuario && Hash::check($request->contrasena, $usuario->contrasena)) {
             Auth::login($usuario);
 
             switch ($usuario->rol) {
@@ -32,7 +32,7 @@ class AuthController extends Controller
                 case 'Profesor':
                     return redirect()->route('profesor.panel');
                 case 'Tutor':
-                    return redirect()->route('tutor.index');
+                    return redirect()->route('tutor.panel');
                 default:
                     return redirect('/');
             }

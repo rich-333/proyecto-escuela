@@ -27,4 +27,8 @@ class Usuario extends Authenticatable
     public function profesor(){
         return $this->belongsTo(Profesor::class, 'id_profesor');
     }
+
+    public function tutor(){
+        return $this->belongsTo(Tutor::class, 'id_tutor');
+    }
 }

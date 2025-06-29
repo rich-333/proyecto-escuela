@@ -42,5 +42,14 @@ class AppServiceProvider extends ServiceProvider
                 }
             }
         });
+
+        View::composer('layouts.tutores', function ($view) {
+            $usuario = Auth::user();
+
+            if ($usuario && $usuario->rol === 'Tutor' && $usuario->tutor) {
+                $estudiantes = $usuario->tutor->estudiantes;
+                $view->with('estudiantes', $estudiantes);
+            }
+        });
     }
 }

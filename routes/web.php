@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CalificacionController;
 use App\Http\Controllers\BoletinController;
+use App\Http\Controllers\PensionController;
+use App\Http\Controllers\TutorController;
 
 Route::get('/login', [AuthController::class, 'mostrarLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'procesarLogin']);
@@ -25,6 +27,13 @@ Route::post('/profesor/notas/guardar-ajax', [CalificacionController::class, 'gua
 
 Route::get('/boletin/ver/{id_estudiante}/{id_periodo}', [BoletinController::class, 'ver'])->name('boletin.ver');
 Route::get('/boletin/descargar/{id_estudiante}/{id_periodo}', [BoletinController::class, 'descargar'])->name('boletin.descargar');
+
+Route::get('/tutor', [TutorController::class, 'panel'])->name('tutor.panel');
+Route::get('/tutor/{id_estudiante}/boletin', [BoletinController::class, 'mostrarBoletin'])->name('boletin.tutor');
+Route::get('/tutor/{id_estudiante}/pensiones', [PensionController::class, 'mostrarPensiones'])->name('pensiones.tutor');
+
+Route::get('/tutor/{id_estudiante}/boletin/{id_periodo}/ver', [BoletinController::class, 'ver'])->name('boletin.tutor.ver');
+Route::get('/tutor/{id_estudiante}/boletin/{id_periodo}/descargar', [BoletinController::class, 'descargar'])->name('boletin.tutor.descargar');
 
 
 Route::get('/', function () {
@@ -57,12 +66,4 @@ Route::get('/agregarEstudiante', function () {
 
 Route::get('/materias', function () {
     return view('profesor/materias');
-});
-
-Route::get('/estudiante', function () {
-    return view('tutor/boletin');
-});
-
-Route::get('/pension', function () {
-    return view('tutor/pensiones');
 });

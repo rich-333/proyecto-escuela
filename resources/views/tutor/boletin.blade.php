@@ -9,20 +9,26 @@
 @endpush
 
 @section('content')
-    <div class="cont">
-        <div class="contenedor__info">
-            <h2>Boletin 1er Trimestre</h2>
-            <span>Del <span class="info__color">01/01/2015</span> Hata <span class="info__color">03/01/2025</span></span>
-            <span>Si desea visulazar o descargar el boletin presione los iconos de la derecha</span>
-        </div>
+    @foreach($periodos as $periodo)
+        <div class="cont">
+            <div class="contenedor__info">
+                <h2>Boletin {{ $periodo->trimestre }}</h2>
+                <span>Del <span class="info__color">{{ \Carbon\Carbon::parse($periodo->fecha_inicio)->format('d/m/Y') }}</span> hasta <span class="info__color">{{ \Carbon\Carbon::parse($periodo->fecha_fin)->format('d/m/Y') }}</span></span>
+                <span>Si desea visulazar o descargar el boletin presione los iconos de la derecha</span>
+            </div>
 
-        <div class="contenedor__iconos">
-            <span class="material-icons-sharp iconos__boletin">
-                visibility
-            </span>
-            <span class="material-icons-sharp iconos__boletin">
-                download
-            </span>
+            <div class="contenedor__iconos">
+                <a href="{{ route('boletin.tutor.ver', ['id_estudiante' => $estudiante->id_estudiante, 'id_periodo' => $periodo->id_periodo]) }}" target="_blank">
+                    <span class="material-icons-sharp iconos__boletin">
+                        visibility
+                    </span>
+                </a>
+                <a  href="{{  route('boletin.tutor.descargar', ['id_estudiante' => $estudiante->id_estudiante, 'id_periodo' => $periodo->id_periodo]) }}">
+                    <span class="material-icons-sharp iconos__boletin">
+                        download
+                    </span>
+                </a>
+            </div>
         </div>
-    </div>
+    @endforeach
 @endsection
