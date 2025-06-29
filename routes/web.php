@@ -35,6 +35,7 @@ Route::get('/tutor/{id_estudiante}/pensiones', [PensionController::class, 'mostr
 Route::get('/tutor/{id_estudiante}/boletin/{id_periodo}/ver', [BoletinController::class, 'ver'])->name('boletin.tutor.ver');
 Route::get('/tutor/{id_estudiante}/boletin/{id_periodo}/descargar', [BoletinController::class, 'descargar'])->name('boletin.tutor.descargar');
 
+Route::get('/tutor/{id_estudiante}/pensiones', [PensionController::class, 'verComoTutor'])->name('pensiones.tutor');
 
 Route::get('/', function () {
     return view('welcome');

@@ -67,7 +67,7 @@ td, th {
 }
 
 .icono__info:hover {
-    color: var(--color-primario);
+    color: #4D44B5;
 }
 
 /* MODAL */

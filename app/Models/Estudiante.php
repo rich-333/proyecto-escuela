@@ -33,4 +33,9 @@ class Estudiante extends Model
     public function tutor() {
         return $this->belongsTo(Tutor::class, 'id_tutor');
     }
+
+    public function pensiones()
+    {
+        return $this->belongsToMany(Pension::class, 'estudiante_pensiones', 'id_estudiante', 'id_pension');
+    }
 }

@@ -33,7 +33,6 @@
 
         <thead>
             <tr>
-                <th>Enero</th>
                 <th>Febrero</th>
                 <th>Marzo</th>
                 <th>Abril</th>
@@ -44,39 +43,35 @@
                 <th>Septiembre</th>
                 <th>Octubre</th>
                 <th>Noviembre</th>
-                <th>Diciembre</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td>
-                    <div class="tabla__celda">
-                        <span>Pagado</span>
-                        <button class="btn__abrirmodal" onclick="abrirPension()">
-                            <span class="material-icons-sharp icono__info">
-                                info
-                            </span>
-                        </button>
-                    </div>
-                </td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
-                <td>Pendiente</td>
+                @foreach(['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre'] as $mes)
+                    @php
+                        $pensionMes = $pensionesPorMes[$mes]->first() ?? null;
+                    @endphp
+                    <td class="celdaEstado">
+                        @if($pensionMes)
+                            <div class="tabla__celda">
+                                <span class="estado">{{ $pensionMes->estado }}</span>
+                                <button class="btn__abrirmodal" onclick="abrirPension('{{ $mes }}', '{{ $pensionMes->anio }}', '{{ $pensionMes->fecha_pago }}', '{{ $pensionMes->monto }}', '{{ $pensionMes->estado }}')">
+                                    <span class="material-icons-sharp icono__info">
+                                        info
+                                    </span>
+                                </button>
+                            </div>
+                        @else
+                            <span class="estado">Pendiente</span>
+                        @endif
+                    </td>
+                @endforeach
             </tr>
         </tbody>
 
     </table>
 </section>
-
 <div class="modal" id="modal">
     <div class="contenido__modal">
         <span class="cerrar" onclick="cerrarPension()">&times;</span>
@@ -88,3 +83,35 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const estados = document.querySelectorAll('.estado');
+        const celdas = document.querySelectorAll('.celdaEstado');
+
+        estados.forEach((estado, index) => {
+            const texto = estado.textContent.trim().toLowerCase();
+
+            if (texto === 'pendiente') {
+                celdas[index].style.backgroundColor = '#FDEDED';
+            } else if (texto === 'pagado') {
+                celdas[index].style.backgroundColor = '#EDFBF2';
+            }
+        });
+    });
+    function abrirPension(mes, anio, fecha, monto, estado) {
+        document.querySelector('.modal__titulo').textContent = mes;
+        document.querySelector('.modal__gestion').innerHTML = `Gestion ${anio}`;
+        document.querySelector('.modal__fecha').innerHTML = `📅 Fecha pago: <strong>${fecha}</strong>`;
+        document.querySelector('.modal__monto').innerHTML = `💰 Monto: <strong>${monto} Bs.</strong>`;
+        document.querySelector('.modal__estado').innerHTML = `⏳ Estado: ${estado}`;
+        document.getElementById('modal').classList.add('activo');
+    }
+
+    function cerrarPension() {
+        document.getElementById('modal').classList.remove('activo');
+    }
+
+</script>
+@endpush
