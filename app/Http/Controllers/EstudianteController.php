@@ -8,10 +8,16 @@ use App\Models\Tutor;
 use App\Models\Curso;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class EstudianteController extends Controller
-{
+{   
     public function index() {
+        $usuario = Auth::user();
+
+        if (!$usuario || $usuario->rol !== 'Administrador') {
+            abort(403, 'No autorizado');
+        }
         $estudiantes = Estudiante::with(['curso', 'tutor'])->get();
         return view('estudiante.index', compact('estudiantes'));
     }

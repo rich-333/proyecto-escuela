@@ -9,7 +9,7 @@ use App\Models\Usuario;
 
 class AuthController extends Controller
 {
-        public function mostrarLogin()
+    public function mostrarLogin()
     {
         return view('iniciar_sesion.login');
     }

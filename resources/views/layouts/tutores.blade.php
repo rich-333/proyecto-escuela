@@ -49,7 +49,10 @@
                     </div>
                 @endforeach
                 
-                <a href="#" class="sidebar__logout">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a href="#" class="sidebar__logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span class="material-icons-sharp">
                         logout
                     </span>

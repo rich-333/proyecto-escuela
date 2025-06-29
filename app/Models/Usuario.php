@@ -18,6 +18,7 @@ class Usuario extends Authenticatable
         'rol',
         'id_tutor',
         'id_profesor',
+        'id_administrador'
     ];
 
     public function getAuthPassword(){
@@ -30,5 +31,9 @@ class Usuario extends Authenticatable
 
     public function tutor(){
         return $this->belongsTo(Tutor::class, 'id_tutor');
+    }
+
+    public function administrador(){
+        return $this->belongsTo(Administrador::class, 'id_administrador');
     }
 }
