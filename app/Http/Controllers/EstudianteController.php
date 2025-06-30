@@ -82,7 +82,7 @@ class EstudianteController extends Controller
 
             Usuario::create([
                 'nombre_usuario' => $request->input('nombre_usuario'),
-                'contrasena' => bcrypt($request->input('contrasena')),
+                'contrasena' => $request->input('contrasena'), //'contrasena' => bcrypt($request->input('contrasena')),
                 'correo' => $request->input('correo'),
                 'rol' => 'Tutor',
                 'id_tutor' => $tutor->id_tutor,

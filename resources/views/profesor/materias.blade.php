@@ -26,6 +26,7 @@
                     <th>Trimestre</th>
                     <th>Nota</th>
                     <!--<th>Agregar</th>-->
+                    <th>Historial Notas</th>
                     <th>Editar</th>
                     <!--<th>Eliminar</th>-->
                     <th>Ver boletin</th>
@@ -70,6 +71,13 @@
                             </button>
                         </td> -->
                         <td>
+                            <button class="btnHistorial" 
+                                data-id-estudiante="{{ $estudiante->id_estudiante }}" 
+                                data-id-materia="{{ $materia->id_materia }}">
+                                <span class="material-icons-sharp icono__info icono">info</span>
+                            </button>
+                        </td>                           
+                        <td>
                             <a href="#">
                                 <span class="material-icons-sharp icono__editar icono">
                                     edit
@@ -106,6 +114,13 @@
         </table>
 
     </section>
+    <div class="modal" id="modalHistorial" style="display: none;">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModalHistorial()">×</span>
+            <h2>Historial de Notas</h2>
+            <ul id="listaNotas"></ul>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -198,6 +213,44 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('No se pudo guardar la nota. Intente nuevamente.');
         });
     }
+});
+
+
+function cerrarModalHistorial() {
+    document.getElementById('modalHistorial').style.display = 'none';
+    document.getElementById('listaNotas').innerHTML = '';
+}
+
+document.querySelectorAll('.btnHistorial').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const idEstudiante = this.dataset.idEstudiante;
+        const idMateria = this.dataset.idMateria;
+
+        fetch(`/notas/historial/${idEstudiante}/${idMateria}`)
+            .then(res => res.json())
+            .then(data => {
+                const lista = document.getElementById('listaNotas');
+                lista.innerHTML = '';
+
+                if (data.length === 0) {
+                    lista.innerHTML = '<li>No hay historial de notas</li>';
+                } else {
+                    data.forEach(nota => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <strong>${nota.periodo.trimestre}</strong>: 
+                            ${nota.nota} puntos
+                        `;
+                        lista.appendChild(li);
+                    });
+                }
+
+                document.getElementById('modalHistorial').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error al obtener historial:', error);
+            });
+    });
 });
 </script>
 @endpush

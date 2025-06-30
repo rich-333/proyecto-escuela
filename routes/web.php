@@ -24,6 +24,14 @@ Route::get('/profesor', [CalificacionController::class, 'panel'])->name('profeso
 Route::get('/profesor/materia/{id_materia}/cursos', [CalificacionController::class, 'mostrarCursos'])->name('profesor.materia.cursos');
 Route::get('/profesor/materia/{id_materia}/curso/{id_curso}', [CalificacionController::class, 'mostrarEstudiantes'])->name('profesor.materia.curso');
 Route::post('/profesor/notas/guardar-ajax', [CalificacionController::class, 'guardarAjax'])->name('calificaciones.guardarAjax');
+Route::get('/notas/historial/{id_estudiante}/{id_materia}', function ($id_estudiante, $id_materia) {
+    $historial = \App\Models\Nota::where('id_estudiante', $id_estudiante)
+        ->where('id_materia', $id_materia)
+        ->with('periodo')
+        ->get();
+
+    return response()->json($historial);
+})->name('notas.historial');
 
 Route::get('/boletin/ver/{id_estudiante}/{id_periodo}', [BoletinController::class, 'ver'])->name('boletin.ver');
 Route::get('/boletin/descargar/{id_estudiante}/{id_periodo}', [BoletinController::class, 'descargar'])->name('boletin.descargar');
