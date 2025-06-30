@@ -1,13 +1,17 @@
 @extends('layouts.tutores')
 
-@section('title', 'Pension')
+@section('title', 'Panel Tutor')
 
-@section('header', 'Pensiones')
+@section('header')
+    Hola {{ $tutor->nombre }} {{ $tutor->apellido }} !
+@endsection
 
 @push('styles')
-    @vite(['resources/css/tutor/pension.css'])
+    @vite(['resources/css/panel/tutor.css'])
 @endpush
 
 @section('content')
-    <h1>Elija una seccio en el sidebar</h1>
+<div class="panel__tutor">
+    <h1>Selecciona una materia y curso desde el menu lateral</h1>
+</div>
 @endsection

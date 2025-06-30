@@ -36,6 +36,7 @@
     <section class="section__tabla">
         <header class="header__tabla">
             <h4 class="header__text">Lista de Estudiantes</h4>
+            <!--
             <div class="section__filtrar">
                 <input class="buscador" type="text" placeholder="Buscar por nombre">
                 <select name="" id="" class="categoria">
@@ -53,6 +54,7 @@
                     <option value="">B</option>
                 </select>
             </div>
+            -->
         </header>
         <table id="tabla">
 

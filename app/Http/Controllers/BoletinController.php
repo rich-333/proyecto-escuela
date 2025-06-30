@@ -8,6 +8,7 @@ use Dompdf\Dompdf;
 use App\Models\Estudiante;
 use App\Models\Nota;
 use App\Models\Periodo;
+use App\Models\Curso;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 

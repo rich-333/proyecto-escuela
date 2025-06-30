@@ -2,12 +2,16 @@
 
 @section('title', 'Panel')
 
-@section('header', 'Panel')
+@section('header')
+    Hola {{ $profesor->nombre }} {{ $profesor->apellido }} !
+@endsection
 
 @push('styles')
-    @vite(['resources/css/materias/style.css'])
+    @vite(['resources/css/panel/profesor.css'])
 @endpush
 
 @section('content')
-    <h1>Seleccione una materia y curso desde el paner lateral</h1>
+<div class="panel__profesor">
+    <h1>Selecciona una materia y curso desde el menu lateral</h1>
+</div>
 @endsection

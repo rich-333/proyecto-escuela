@@ -8,6 +8,7 @@ use App\Models\Materia;
 use App\Models\Estudiante;
 use App\Models\Periodo;
 use App\Models\Profesor;
+use App\Models\Curso;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -23,7 +24,7 @@ class CalificacionController extends Controller
         $materias = $profesor->materias;
         $cursos = $profesor->cursos;
 
-        return view('profesor.panel', compact('materias', 'cursos'));
+        return view('profesor.panel', compact('materias', 'cursos', 'profesor'));
     }   
 
     public function mostrarEstudiantes($id_materia, $id_curso)
@@ -51,8 +52,9 @@ class CalificacionController extends Controller
 
         $estudiantes = Estudiante::where('id_curso', $id_curso)->get();
         $materia = Materia::findOrFail($id_materia);
+        $curso = Curso::findOrFail($id_curso);
 
-        return view('profesor.materias', compact('estudiantes', 'periodo_actual', 'materia', 'notas'));
+        return view('profesor.materias', compact('estudiantes', 'periodo_actual', 'materia', 'notas', 'curso'));
     }
 
     public function guardarAjax(Request $request)

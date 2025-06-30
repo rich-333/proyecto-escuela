@@ -15,10 +15,10 @@
         <img class="logo" src="{{ asset('imagenes/EscudoSF.PNG') }}" alt="Logo">
       </div>
       <label for="nombreUsuario" class="sesion__campo">Nombre de usuario</label>
-      <input id="nombreUsuario" name="nombre_usuario" class="sesion__entrada" type="text" placeholder="BaldemarHeredia7823" required>
+      <input id="nombreUsuario" name="nombre_usuario" class="sesion__entrada" type="text" placeholder="Nombre de usuario" required>
 
       <label for="contrasena" class="sesion__campo">Contraseña</label>
-      <input id="contrasena" name="contrasena" class="sesion__entrada" type="password" required>
+      <input id="contrasena" name="contrasena" class="sesion__entrada" type="password" placeholder="Contraseña" required >
       <div class="sesion__boton">
         <button class="boton" type="submit">Iniciar Sesion</button>
       </div>

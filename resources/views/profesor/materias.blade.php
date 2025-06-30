@@ -1,8 +1,12 @@
 @extends('layouts.profesores')
 
-@section('title', '{{Materias}}')
+@section('title') 
+    {{ $materia->nombre }}
+@endsection
 
-@section('header', 'Matematicas')
+@section('header')
+    {{ $materia->nombre }}
+@endsection
 
 @push('styles')
     @vite(['resources/css/materias/style.css'])
@@ -11,7 +15,7 @@
 @section('content')
     <section class="section__tabla">
         <header class="header__tabla">
-            <h4 class="header__text">Lista de Estudiantes</h4>
+            <h4 class="header__text">Lista de estudiantes del curso {{ $curso->grado }}  {{ $curso->paralelo }}</h4>
         </header>
 
         <table id="tabla">

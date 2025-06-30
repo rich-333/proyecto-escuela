@@ -25,12 +25,13 @@
             </div>
             <div class="sidebar">
                 <a href="#" class="active">
-                    <img class="sidebar__icon" src="{{ asset('imagenes/profesor.png') }}" alt="Icono seccion profesores">
-                    <h3 class="sidebar__seccion">Profesores</h3>
-                </a>
-                <a href="#">
                     <img class="sidebar__icon" src="{{ asset('imagenes/estudiante.png') }}" alt="Icono seccion estudiantes">
                     <h3 class="sidebar__seccion">Estudiantes</h3>
+                </a>
+                <!--
+                <a href="#" class="active">
+                    <img class="sidebar__icon" src="{{ asset('imagenes/profesor.png') }}" alt="Icono seccion profesores">
+                    <h3 class="sidebar__seccion">Profesores</h3>
                 </a>
                 <a href="#">
                     <img class="sidebar__icon" src="{{ asset('imagenes/tutor.png') }}" alt="Icono seccion tutor">
@@ -44,6 +45,7 @@
                     <img class="sidebar__icon" src="{{ asset('imagenes/pensiones.png') }}" alt="Icono seccion pensiones">
                     <h3 class="sidebar__seccion">Pensiones</h3>
                 </a>
+                -->
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -64,7 +66,7 @@
                             arrow_back
                         </span>
                     </a>
-                    <input type="text" class="header__buscador" placeholder="Buscar">
+                    <!-- <input type="text" class="header__buscador" placeholder="Buscar"> -->
                 </div>
                 <div class="header__campos">
                     <a href="">

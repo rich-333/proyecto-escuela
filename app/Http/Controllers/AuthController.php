@@ -22,8 +22,8 @@ class AuthController extends Controller
         ]);
 
         $usuario = Usuario::where('nombre_usuario', $request->nombre_usuario)->first();
-
-        if ($usuario && Hash::check($request->contrasena, $usuario->contrasena)) {
+        //$usuario && $request->contrasena === $usuario->contrasena
+        if ($usuario && Hash::check($request->contrasena, $usuario->contrasena)) { //$usuario && Hash::check($request->contrasena, $usuario->contrasena)
             Auth::login($usuario);
 
             switch ($usuario->rol) {

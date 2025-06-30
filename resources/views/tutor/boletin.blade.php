@@ -2,7 +2,7 @@
 
 @section('title', 'Boletin')
 
-@section('header', 'Bademar Heredia Sosa')
+@section('header', 'Boletin')
 
 @push('styles')
     @vite(['resources/css/tutor/boletin.css'])
